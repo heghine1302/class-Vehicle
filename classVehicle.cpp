@@ -5,7 +5,6 @@
 using namespace std;
 
 class Vehicle {
-  
 private:
 	int numOfwheels;
 	double prise;
@@ -13,7 +12,6 @@ private:
 	string model;
 	string type;
 	bool workingORnot;
-
 public:
 	Vehicle() {
 		numOfwheels = 0;
@@ -31,10 +29,7 @@ public:
 		this->model = model;
 		this->type = type;
 		this->workingORnot = workingORnot;
-		
 	}
-
-
 	void Print() {
 
 		this_thread::sleep_for(chrono::milliseconds(500));
@@ -42,7 +37,6 @@ public:
 		cout << "numOfwheels = " << numOfwheels << "\nprise = " << prise << "\ncolor = " <<
 			color << "\nmodel = " << model << "\ntype = " << type << "\nworking or not = " << workingORnot << endl;
 	}
-
 	void info()
 	{
 		cout << "numOfwheels -> ";
@@ -60,16 +54,13 @@ public:
 
 		cout << endl;
 	}
-
 	~Vehicle() {
 		cout << "Destructor" << endl;
 		system("pause");
-
 	}
 };
 
 int main() {
-
 	cout << "Constructor\n\n";
 	Vehicle constr;
 	constr.Print();
