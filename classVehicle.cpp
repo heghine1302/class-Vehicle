@@ -135,7 +135,7 @@ public:
 
 		cout << endl;
 	}
-	~Human() {
+	virtual ~Human() {
 		cout << "Destructor of Human" << endl;
 		system("pause");
 	}
@@ -148,14 +148,13 @@ private:
 	int ID;
 
 public:
-	Student()
-	{
+	Student(){
 		cout << "Constructor of Student" << endl;
 		group = 807;
 		ID = 1302;
 	}
 
-	Student(int group, int ID) : Human(name, sex, age)
+	Student(const int&_group, const int&_ID) : Human(name, sex, age)
 	{
 		this->group = group;
 		this->ID = ID;
@@ -181,9 +180,15 @@ public:
 
 		Human::cinHuman();
 	}
-	~Student() {
+
+	virtual ~Student() {
 		cout << "Destructor of Student" << endl;
 		system("pause");
+	}
+
+	void doSmth() {
+		Human*p = new Student;
+		delete p;
 	}
 };
 
@@ -199,7 +204,7 @@ public:
 		subject = "Math";
 	}
 
-	Professor(string subject) : Human(name, sex, age)
+	Professor(const string&_subject) : Human(name, sex, age)
 	{
 		this->subject = subject;
 	}
@@ -216,20 +221,28 @@ public:
 
 		Human::cinHuman();
 	}
-	~Professor() {
+	virtual ~Professor() {
 		cout << "Destructor of Professor" << endl;
 		system("pause");
 	}
+
+	void doSmth() {
+		Human* p = new Professor;
+		delete p;
+	}
+
 };
 
 int main() {
 
 	Student s;
+	s.doSmth();
 	s.Learn();
 	s.cinHuman();
 	s.HumanPrint();
 
 	Professor p;
+	p.doSmth();
 	p.cinHuman();
 	p.HumanPrint();
 
